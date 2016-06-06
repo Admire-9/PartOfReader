@@ -180,15 +180,25 @@
             top: -2px;
             left: -2px;
         }
+        .artical-action-mid {
+            position: fixed;
+            z-index: 10002;
+            width: 100%;
+            height: 40%;
+            top: 30%;
+        }
     </style>
 </head>
 <body>
 <div id="root" class="container">
-    <div id="top-nav" class="top-nav">
+    <div class="m-artical-action">
+        <div class="artical-action-mid" id="action-mid"></div>
+    </div>
+    <div id="top-nav" class="top-nav" style="display: none">
         <div class="icon-back"></div>
         <div class="nav-title">返回书架</div>
     </div>
-    <div id="bottom-nav" class="bottom-nav">
+    <div id="bottom-nav" class="bottom-nav" style="display: none">
         <div id="book-nav">
             <div class="bottom-icon book-nav-icon"></div>
             <div class="bottom-title">目录</div>
@@ -241,7 +251,7 @@
             <li id="next_button">下一章</li>
         </ul>
     </div>
-    <div class="nav-pannel" id="font-container">
+    <div class="nav-pannel" id="font-container" style="display: none">
         <div class="child-mod">
             <span>字号</span>
             <button id="large-font" class="font-size-btn">大</button>
@@ -275,7 +285,74 @@
 <script src="js/jquery.jsonp.js"></script>
 
 <script>
+    (function(){
+        var Util = (function () {
+            var prefix = 'html5_reader_';
+            //这样写是为了防止同一个域名下 误操作我们的localStorage，所以进行一个封装
+            var StorageGetter = function(key){
+              return localStorage.getItem(prefix+key);
+            };
+            var StorageSetter = function(key , value){
+                return localStorage.setItem(prefix+key,value);
+            };
+            return {
+                StorageGetter : StorageGetter,
+                StorageSetter : StorageSetter
+            }
+        })();
+        var Dom = {
+            top_nav:$('#top-nav'),
+            bottom_nav:$('#bottom-nav'),
+            font_container:$('#font-container'),
 
+        }
+        function main(){
+            //todo 整个项目的入口函数
+            EventHandler();
+        }//入口函数
+
+        function ReaderModel(){
+            //todo 实现和阅读器想关的数据交互的方法，例如ajax 等，所有与服务器相关的
+        }//数据层
+
+        function ReaderBaseFrame(){
+            //todo 渲染基本的UI结构
+        }//UI层
+
+        function EventHandler(){
+            //todo 交互的事件绑定
+            //touch事件
+            //zepto tap事件
+            //4.0 click 有300秒的延迟，4.0以后touch与zepto tap事件和click的延迟几乎无差别
+            $('#action-mid').click(function(){
+                if(Dom.top_nav.css('display') == 'none'){
+                    Dom.bottom_nav.show();
+                    Dom.top_nav.show();
+                }else{
+                    Dom.bottom_nav.hide();
+                    Dom.top_nav.hide();
+                }
+            })//对上下俩导航栏的唤醒
+
+            $('#change-font').click(function(){
+                if(Dom.font_container.css('display') == 'none'){
+                    Dom.font_container.show();
+                }else{
+                    Dom.font_container.hide();
+                }
+            })//对字体调整容器的唤醒
+
+            $('#change-day').click(function(){
+                if(){
+
+                }else{
+
+                }
+            })//对白天黑夜的改变
+        }//控制层
+
+        main();
+    })();//首先声明一个闭包
 </script>
 </body>
 </html>
