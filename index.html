@@ -172,7 +172,7 @@
             margin-right: 15px;
             float: left;
         }
-        .bk-container-current {
+        .bk-container-current >div {
             width: 27px;
             height: 27px;
             border-radius: 50%;
@@ -263,15 +263,15 @@
             <button id="large-font" class="font-size-btn">大</button>
             <button id="small-font" class="font-size-btn current-font">小</button>
         </div>
-        <div class="child-mod">
+        <div id="control-background-color" class="child-mod">
             <span>背景</span>
-            <div class="bk-container">
-                <div class="bk-container-current"></div>
+            <div class="bk-container bk-container-current" data-color="#e9dfc7" style="background-color:#e9dfc7">
+                <div class="" ></div>
             </div>
-            <div class="bk-container">
+            <div class="bk-container" data-color="#ccc" style="background-color:#ccc">
                 <div class=""></div>
             </div>
-            <div class="bk-container">
+            <div class="bk-container" data-color="#fff" style="background-color: #fff">
                 <div class=""></div>
             </div>
             <div class="bk-container">
@@ -312,7 +312,7 @@
             font_container:$('#font-container'),
             night_day_switch_btn:$('#change-day div').first(),
             change_day_title:$('#change-day .bottom-title'),
-            main_body : $('body'),
+            main_body : $('body')
     }
         var fuc = {
             changeBc: function (dom,color){
@@ -378,11 +378,30 @@
             })//对白天黑夜的改变
 
             $('#control-font-size').click(function(event){
-                if($(event.target).id == 'control-font-size' || $(event.target).hasClass('current-font')){
+                var eventElement = $(event.target);
+                if(eventElement.attr('id') == 'control-font-size' || eventElement.hasClass('current-font')){
                     return;
                 }else{
-                    $(event.target).addClass('current-font');
-                    $(event.target).siblings().removeClass('current-font');
+                    eventElement.addClass('current-font');
+                    eventElement.siblings().removeClass('current-font');
+                    if(eventElement.attr('id') == 'large-font'){
+                        $('#fiction_container').css('font-size',18);
+                    }else{
+                        $('#fiction_container').css('font-size',14);
+                    }
+                }
+            })//对字体的改变控制
+
+            $('#control-background-color').click(function(event){
+                var eventElement = $(event.target);
+                if(eventElement.attr('id') == 'control-background-color' || eventElement.hasClass('bk-container-current')){
+                    return;
+                }else{
+                    var background_color = eventElement.data('color');
+                    console.log(background_color);
+                    eventElement.addClass('bk-container-current');
+                    eventElement.siblings().removeClass('bk-container-current');
+                    fuc.changeBc(Dom.main_body,background_color);
                 }
             })
         }//控制层
