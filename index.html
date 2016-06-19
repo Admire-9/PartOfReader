@@ -218,38 +218,8 @@
             <div class="bottom-title">白天</div>
         </div>
     </div>
-    <div id="fiction_chapter_title"></div>
-    <div id="fiction_container" class="m-read-content">
-        <h4>能得到七皇子的青眼</h4>
-        <p>若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-
-        </p>
-        <p>
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-        </p>
-        <p>
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-        </p>
-        <p>
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-            若是平时，能得七皇子青眼，她指不定高兴成什么样子了，可是方才她的名字已经被蒋旭和姜若雪占去了，她若现在说自己是姜若愚，可不就打别人的脸了么
-        </p>
+    <div id="fiction-chapter-title"></div>
+    <div id="fiction-container" class="m-read-content">
     </div>
     <div class="m-button-bar">
         <ul class="u-tab">
@@ -301,7 +271,22 @@
             var StorageSetter = function(key , value){
                 return localStorage.setItem(prefix+key,value);
             };
+
+            var getBSONP  = function(url,callback){
+                return $.jsonp({
+                    url:url ,
+                    cache:true,
+                    callback:'duokan_fiction_chapter',
+                    success : function(result){
+                        var data = $.base64.decode(result);
+                        var json = decodeURIComponent(escape(data))//
+                        callback(json);
+                    }
+                })
+            }
+
             return {
+                getBSONP : getBSONP,
                 StorageGetter : StorageGetter,
                 StorageSetter : StorageSetter
             }
@@ -312,7 +297,8 @@
             font_container:$('#font-container'),
             night_day_switch_btn:$('#change-day div').first(),
             change_day_title:$('#change-day .bottom-title'),
-            main_body : $('body')
+            main_body : $('body'),
+            fiction_container : $('#fiction-container')
     }
         var fuc = {
             changeBc: function (dom,color){
@@ -325,17 +311,64 @@
                 dom.css('font-size',fontSize);
             }
         }
+
         function main(){
             //todo 整个项目的入口函数
+            var readerModel = ReaderModel();
+            var readerUI = ReaderBaseFrame(Dom.fiction_container);
+            readerModel.init(function(data){
+                readerUI(data);
+            });
             EventHandler();
         }//入口函数
 
         function ReaderModel(){
             //todo 实现和阅读器想关的数据交互的方法，例如ajax 等，所有与服务器相关的
+            var Chapter_ID;
+            var init = function(UIcallback){
+                getFictionInfo(function(){
+                    getCurChapterContent(Chapter_ID,function(data){
+                        //TODO....
+                        UIcallback && UIcallback(data);
+                    });
+                })
+            }//先获取章节，然后获取具体章节的内容
+            var getFictionInfo = function(callback){
+                $.get('data/chapter.json',function(data){
+                    //获得章节信息之后的回掉
+                    Chapter_ID = data.chapters[1].chapter_id;
+                    console.log(Chapter_ID);
+                    callback && callback();
+                },'json');
+            }//获取章节
+            var getCurChapterContent = function(chapter_id,callback){
+                $.get('data/data' + chapter_id + '.json',function(data){
+                    if(data.result == 0){
+                        var url = data.jsonp;
+                        Util.getBSONP(url, function (data) {
+                            callback && callback(data);
+                        })
+                    }
+                },'json');
+            }//根据章节id获取内容
+            return {
+                init : init
+            }//将接口暴露出去
         }//数据层
 
-        function ReaderBaseFrame(){
+        function ReaderBaseFrame(container){
             //todo 渲染基本的UI结构
+            function parseChapterData(jsonData){
+                var jsonObj = JSON.parse(jsonData);
+                var html = '<h4>' + jsonObj.t + '</h4>';
+                for(var i = 0,pLength = jsonObj.p.length ; i < pLength ; i++){
+                    html += "<p>"+ jsonObj.p[i] + "</p>";
+                }
+                return html;
+            }
+            return function(data){
+                container.html(parseChapterData(data));
+            }
         }//UI层
 
         function EventHandler(){
